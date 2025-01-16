@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:ignore="ExtraText">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="left"
+            >
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="125dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/txtImej"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="i m e j"
+                android:textColor="@color/darkblue"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtTransformPhotos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transform Your Photos with"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/darkblue"
+            android:layout_gravity="left" />
+
+        <TextView
+            android:id="@+id/txtCuttingEdge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cutting-Edge AI Tools"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/darkblue"
+            android:layout_gravity="right" />
+
+
+        <!-- Gambar Efek Negatif -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <ImageView
+                android:id="@+id/imgBackground"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/pic"
+            android:contentDescription="Background" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtSupportingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:text="Edit, Enhance, and Explore"
+            android:textColor="@color/darkblue"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/txtAllInOneApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All in One App"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/darkblue"
+            android:layout_gravity="left"/>
+
+        <TextView
+            android:id="@+id/txtCreativity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let Your Creativity Shine with AI-Powered Image Processing"
+            android:textSize="17sp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/txtAllInOneApp"
+            android:textColor="@color/darkblue"
+            android:layout_gravity="left"
+            android:lineSpacingExtra="4dp" />
+
+        <Button
+            android:id="@+id/btnStartEditing"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/darkblue"
+            android:padding="15dp"
+            android:text="Start Editing Now!"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
