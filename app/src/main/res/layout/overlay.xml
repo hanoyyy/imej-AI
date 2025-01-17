@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#1A3B5D"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_arrow_back"
+                android:contentDescription="Back Button"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Overlay"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Image 2"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:src="@drawable/sample_image"
+            android:contentDescription="image 2"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Overlay"
+            android:textSize="16dp"
+            android:id="@+id/btnOverlay"
+            android:backgroundTint="#CDCDCD"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>
