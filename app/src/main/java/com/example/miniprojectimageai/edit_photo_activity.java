@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class edit_photo_activity extends Activity {
 
 	private ImageView originalimage, modifiedimage;
-	private LinearLayout backlayout,undolayout,redolayout,checklayout, enhancelayout, filterlayout, croplayout,grayscalelayout,colorlayout,fliplayout,rotatelayout,borderlayout,compresslayout,segmentlayout,binarylayout;
+	private LinearLayout backlayout,undolayout,redolayout,checklayout, enhancelayout, filterlayout, matchinglayout,restorationlayout,mathematicallayout,basiclayout,binarylayout,compressionlayout,segmentationlayout;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -23,15 +23,13 @@ public class edit_photo_activity extends Activity {
 		backlayout = findViewById(R.id.backlayout);
 		originalimage = findViewById(R.id.originalimage);
 		modifiedimage = findViewById(R.id.modifiedimage);
-		segmentlayout = findViewById(R.id.segmentlayout);
+		segmentationlayout = findViewById(R.id.segmentationlayout);
+		compressionlayout = findViewById(R.id.compressionlayout);
 		binarylayout = findViewById(R.id.binarylayout);
-		compresslayout = findViewById(R.id.compresslayout);
-		borderlayout = findViewById(R.id.borderlayout);
-		rotatelayout = findViewById(R.id.rotatelayout);
-		fliplayout = findViewById(R.id.fliplayout);
-		colorlayout = findViewById(R.id.colorlayout);
-		grayscalelayout = findViewById(R.id.grayscalelayout);
-		croplayout = findViewById(R.id.croplayout);
+		basiclayout = findViewById(R.id.basiclayout);
+		matchinglayout = findViewById(R.id.matchinglayout);
+		restorationlayout = findViewById(R.id.restorationlayout);
+		mathematicallayout = findViewById(R.id.mathematicallayout);
 		filterlayout = findViewById(R.id.filterlayout);
 		enhancelayout = findViewById(R.id.enhancelayout);
 		checklayout = findViewById(R.id.checklayout);
