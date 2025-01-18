@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_43_shape">
+
+        <LinearLayout
+            android:id="@+id/enhancebacklayout"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:clickable="true">
+            
+            <ImageView
+                android:id="@+id/editbackview"
+                android:layout_width="32.38dp"
+                android:layout_height="32.38dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="12.31dp"
+                android:src="@drawable/back"/>
+
+        </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enhance"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"  />
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/Histogrambtn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/gray"
+                android:text="Histogram Equalization"
+                android:textSize="15dp"
+                android:padding="12dp"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false" />
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="102dp"
+                android:backgroundTint="@color/gray"
+                android:text="Gamma Correction"
+                android:textSize="14dp"
+                android:padding="12dp"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false" />
+
+            <SeekBar
+                android:id="@+id/gammaslider"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="60"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+
+                android:backgroundTint="@color/gray"
+                android:text="Contrast Strecting"
+                android:textSize="14dp"
+                android:padding="12dp"
+                android:textColor="@android:color/black"
+                android:textAllCaps="false" />
+
+            <Switch
+                android:id="@+id/contrastswitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/enhancesavebtn"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:backgroundTint="@color/rectangle_43_color"
+                android:text="Save"
+                android:textSize="15dp"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
