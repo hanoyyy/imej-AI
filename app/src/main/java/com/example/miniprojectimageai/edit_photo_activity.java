@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class edit_photo_activity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class edit_photo_activity extends AppCompatActivity {
 
 	private ImageView originalimage, modifiedimage;
 	private LinearLayout backlayout,undolayout,redolayout,checklayout, enhancelayout, filterlayout, matchinglayout,restorationlayout,mathematicallayout,basiclayout,binarylayout,compressionlayout,segmentationlayout;
