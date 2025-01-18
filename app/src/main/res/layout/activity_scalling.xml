@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Translation"
+                android:text="Scalling"
                 android:id="@+id/rotation"
                 android:gravity="center"
                 android:textSize="18sp"
@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tx value:"
+            android:text="x value:"
             android:textSize="18sp"
             android:textColor="#000000"
             android:layout_gravity="center_vertical"
@@ -48,10 +48,10 @@
             android:layout_marginTop="30dp" />
 
         <EditText
-            android:id="@+id/txValue"
+            android:id="@+id/value_x"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:hint="Enter value for tx"
+            android:hint="Enter value for x"
             android:inputType="number"
             android:backgroundTint="#4E4E4E"
             android:padding="5dp"
@@ -60,7 +60,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ty value:"
+            android:text="y value:"
             android:textSize="18sp"
             android:textColor="#000000"
             android:layout_gravity="center_vertical"
@@ -68,16 +68,24 @@
             android:layout_marginTop="10dp" />
 
         <EditText
-            android:id="@+id/tyValue"
+            android:id="@+id/value_y"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:hint="Enter value for ty"
+            android:hint="Enter value for y"
             android:inputType="number"
             android:backgroundTint="#4E4E4E"
             android:padding="5dp"
             android:layout_marginBottom="20dp" />
 
-
+        <Button
+            android:id="@+id/btnScaling"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Scaling"
+            android:textSize="16dp"
+            android:backgroundTint="#CDCDCD"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
 </ScrollView>
