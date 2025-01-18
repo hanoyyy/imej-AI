@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Flip"
+                android:text="Translation"
                 android:id="@+id/rotation"
                 android:gravity="center"
                 android:textSize="18sp"
@@ -37,25 +37,47 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnHorizontal"
-            android:layout_width="300dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Horizontal Flip"
-            android:textSize="16dp"
-            android:backgroundTint="#CDCDCD"
+            android:text="tx value:"
+            android:textSize="18sp"
             android:textColor="#000000"
-            android:layout_marginTop="16dp" />
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="30dp" />
 
-        <Button
-            android:id="@+id/btnVertical"
-            android:layout_width="300dp"
+        <EditText
+            android:id="@+id/txValue"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:text="Vertical Flip"
-            android:textSize="16dp"
-            android:backgroundTint="#CDCDCD"
+            android:hint="Enter value for tx"
+            android:inputType="number"
+            android:backgroundTint="#4E4E4E"
+            android:padding="5dp"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ty value:"
+            android:textSize="18sp"
             android:textColor="#000000"
-            android:layout_marginTop="16dp" />
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:id="@+id/tyValue"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter value for ty"
+            android:inputType="number"
+            android:backgroundTint="#4E4E4E"
+            android:padding="5dp"
+            android:layout_marginBottom="20dp" />
+
+
 
     </LinearLayout>
 </ScrollView>
