@@ -65,8 +65,6 @@ public class EnhanceActivity extends AppCompatActivity {
 
         backbtn.setOnClickListener(v -> {
             finish();
-            Intent intent = new Intent(EnhanceActivity.this, EditPhotoActivity.class);
-            startActivity(intent);
         });
     }
 
