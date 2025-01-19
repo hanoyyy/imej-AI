@@ -1,6 +1,7 @@
 package com.example.miniprojectimageai;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Multipart;
@@ -13,4 +14,11 @@ public interface ApiService {
     @POST("upload_image")
         // Make sure this path matches your Flask API endpoint
     Call<ResponseBody> uploadImage(@Part MultipartBody.Part image);
+
+    @Multipart
+    @POST("/rotate")
+    Call<RotationResponse> rotateImage(
+            @Part MultipartBody.Part image,
+            @Part("degrees") RequestBody degrees
+    );
 }

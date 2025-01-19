@@ -44,4 +44,5 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0") // JSON converter
     implementation("com.squareup.okhttp3:okhttp:4.9.3") // OkHttp for HTTP requests
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3") // Logging (optional)
+    implementation("com.github.bumptech.glide:glide:4.15.1")
 }
