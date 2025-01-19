@@ -21,7 +21,6 @@ public class basic_image_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_basic_image);
-
                 // Buttons
                 Button btnGrayscale = findViewById(R.id.btnGrayscale);
                 Button btnNegative = findViewById(R.id.btnNegative);

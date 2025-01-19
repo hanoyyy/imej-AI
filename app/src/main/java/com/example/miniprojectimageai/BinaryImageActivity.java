@@ -16,7 +16,7 @@ public class BinaryImageActivity extends AppCompatActivity {
 
     private ImageView imgBack;
     private TextView txtHeader;
-    private Button btnWienerFilter, btnErosion, btnOpening, btnClosing;
+    private Button btnWienerFilter, btnErosion, btnOpening, btnClosing, btnBoundaryExtraction;
     private ImageView binaryImageView;
     private Bitmap originalImage, processedImage;
 
@@ -32,6 +32,7 @@ public class BinaryImageActivity extends AppCompatActivity {
         btnErosion = findViewById(R.id.btnErosion);
         btnOpening = findViewById(R.id.btnOpening);
         btnClosing = findViewById(R.id.btnClosing);
+        btnBoundaryExtraction = findViewById(R.id.btnBoundaryExtraction);
 
         // Back button functionality
         imgBack.setOnClickListener(v -> finish());  // Close activity when back button is clicked
@@ -41,6 +42,7 @@ public class BinaryImageActivity extends AppCompatActivity {
         btnErosion.setOnClickListener(v -> applyErosion());
         btnOpening.setOnClickListener(v -> applyOpening());
         btnClosing.setOnClickListener(v -> applyClosing());
+        btnBoundaryExtraction.setOnClickListener(v -> applyBoundaryExtraction());
     }
 
     // Function to apply Dilation (Wiener Filter)
@@ -81,6 +83,16 @@ public class BinaryImageActivity extends AppCompatActivity {
             processedImage = originalImage; // Replace with actual processing
             binaryImageView.setImageBitmap(processedImage);
             Toast.makeText(BinaryImageActivity.this, "Closing Filter Applied", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Function to apply Boundary Extraction
+    private void applyBoundaryExtraction() {
+        if (originalImage != null) {
+            // Apply erosion operation (placeholder)
+            processedImage = originalImage; // Replace with actual processing
+            binaryImageView.setImageBitmap(processedImage);
+            Toast.makeText(BinaryImageActivity.this, "Boundary Extraction Filter Applied", Toast.LENGTH_SHORT).show();
         }
     }
 }

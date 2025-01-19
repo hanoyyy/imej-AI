@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ImageRestorationActivity extends AppCompatActivity {
 
     private ImageView imgBack, binaryImageView;
-    private Button btnWienerFilter, btnRestorationGaussianFilter;
+    private Button btnWienerFilter, btnRestorationGaussianFilter, btnInpainting;
     private Bitmap originalImage, processedImage;
 
     @Override
@@ -26,11 +26,13 @@ public class ImageRestorationActivity extends AppCompatActivity {
         imgBack = findViewById(R.id.imgBack);
         btnWienerFilter = findViewById(R.id.btnWienerFilter);
         btnRestorationGaussianFilter = findViewById(R.id.btnRestorationGaussianFilter);
+        btnInpainting = findViewById(R.id.btnInpainting);
 
 
         // Set listeners for the buttons
         btnWienerFilter.setOnClickListener(v -> applyWienerFilter());
         btnRestorationGaussianFilter.setOnClickListener(v -> applyGaussianFilter());
+        btnInpainting.setOnClickListener(v -> applyInpainting());
 
         // Back button functionality
         imgBack.setOnClickListener(v -> finish());
@@ -52,6 +54,15 @@ public class ImageRestorationActivity extends AppCompatActivity {
             processedImage = originalImage; // Replace with actual Gaussian Filter implementation
             binaryImageView.setImageBitmap(processedImage);
             Toast.makeText(ImageRestorationActivity.this, "Gaussian Filter Applied", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void applyInpainting() {
+        if (originalImage != null) {
+            // Apply Wiener Filter to the original image (This is just a placeholder for the actual logic)
+            processedImage = originalImage; // Replace with actual Wiener Filter implementation
+            binaryImageView.setImageBitmap(processedImage);
+            Toast.makeText(ImageRestorationActivity.this, "Inpainting Applied", Toast.LENGTH_SHORT).show();
         }
     }
 }
