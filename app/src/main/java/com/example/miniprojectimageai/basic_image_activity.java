@@ -44,7 +44,7 @@ public class basic_image_activity extends AppCompatActivity {
                     Toast.makeText(basic_image_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
 
                     // Navigate back to the previous activity
-                    Intent intent = new Intent(basic_image_activity.this, edit_photo_activity.class);
+                    Intent intent = new Intent(basic_image_activity.this, EditPhotoActivity.class);
                     startActivity(intent);
                 });
 
