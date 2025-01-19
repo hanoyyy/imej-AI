@@ -3,6 +3,7 @@ package com.example.miniprojectimageai;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -14,87 +15,126 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.slider.Slider;
+
 public class basic_image_activity extends AppCompatActivity {
 
+    Button btnGrayscale, btnNegative,btnColorManipulation,backButton,btnFlip,btnTranslation,btnRotation,btnScaling,btnCropping,btnImageBlend,btnPaddingBorder;
+    SeekBar sliderBrightness,sliderContrast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_basic_image);
+
+        // Initialize views
+        initializeViews();
+
+        // Set click listeners
+        setClickListeners();
+    }
                 // Buttons
-                Button btnGrayscale = findViewById(R.id.btnGrayscale);
-                Button btnNegative = findViewById(R.id.btnNegative);
-                Button btnColorManipulation = findViewById(R.id.btnColorManipulation);
-                Button btnFlip = findViewById(R.id.btnFlip);
-                Button btnTranslation = findViewById(R.id.btnTranslation);
-                Button btnRotation = findViewById(R.id.btnRotation);
-                Button btnScaling = findViewById(R.id.btnScaling);
-                Button btnCropping = findViewById(R.id.btnCropping);
-                Button btnImageBlend = findViewById(R.id.btnImageBlend);
-                Button btnPaddingBorder = findViewById(R.id.btnPaddingBorder);
+                private void initializeViews() {
+                    btnGrayscale = findViewById(R.id.btnGrayscale);
+                    btnNegative = findViewById(R.id.btnNegative);
+                    btnColorManipulation = findViewById(R.id.btnColorManipulation);
+                    btnFlip = findViewById(R.id.btnFlip);
+                    btnTranslation = findViewById(R.id.btnTranslation);
+                    btnRotation = findViewById(R.id.btnRotation);
+                    btnScaling = findViewById(R.id.btnScaling);
+                    btnCropping = findViewById(R.id.btnCropping);
+                    btnImageBlend = findViewById(R.id.btnImageBlend);
+                    btnPaddingBorder = findViewById(R.id.btnPaddingBorder);
 
-                // Sliders
-                SeekBar sliderBrightness = findViewById(R.id.sliderBrightness);
-                SeekBar sliderContrast = findViewById(R.id.sliderContrast);
+                    // Sliders
+                    sliderBrightness = findViewById(R.id.sliderBrightness);
+                    sliderContrast = findViewById(R.id.sliderContrast);
 
-                Button backButton = findViewById(R.id.back);
+                    backButton = findViewById(R.id.back);
+                }
 
-                backButton.setOnClickListener(v -> {
-                    Toast.makeText(basic_image_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+    private void setClickListeners() {
+                backButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(basic_image_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
 
-                    // Navigate back to the previous activity
-                    Intent intent = new Intent(basic_image_activity.this, EditPhotoActivity.class);
-                    startActivity(intent);
+                        // Navigate back to the previous activity
+                        finish();
+                    }
                 });
 
-
-                // Handle Button Clicks
-                btnGrayscale.setOnClickListener(v ->
-                        Toast.makeText(this, "Grayscale button clicked!", Toast.LENGTH_SHORT).show()
-                );
-
-                btnNegative.setOnClickListener(v ->
-                        Toast.makeText(this, "Negative button clicked!", Toast.LENGTH_SHORT).show()
-                );
-
-                btnColorManipulation.setOnClickListener(v ->{
-                    Intent intent = new Intent(basic_image_activity.this, color_manipulation_activity.class);
-                    startActivity(intent);
+                    btnGrayscale.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(basic_image_activity.this, "Grayscale button clicked!", Toast.LENGTH_SHORT).show();
+                        }
                 });
 
-                btnFlip.setOnClickListener(v -> {
-                        Intent intent = new Intent(basic_image_activity.this, flipActivity.class);
-                        startActivity(intent);
-                });
+        btnNegative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(basic_image_activity.this, "Negative button clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnColorManipulation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(basic_image_activity.this, color_manipulation_activity.class);
+                startActivity(intent);
+            }
+        });
 
-                btnTranslation.setOnClickListener(v -> {
-                        Intent intent = new Intent(basic_image_activity.this, translationActivity.class);
-                        startActivity(intent);
-                });
+        btnFlip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(basic_image_activity.this, flipActivity.class);
+                startActivity(intent);
+            }
+        });
 
-                btnRotation.setOnClickListener(v -> {
-                        Intent intent = new Intent(basic_image_activity.this, rotationActivity.class);
-                        startActivity(intent);
-                });
+        btnTranslation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(basic_image_activity.this, translationActivity.class);
+                startActivity(intent);
+            }
+        });
 
-                btnScaling.setOnClickListener(v -> {
-                    Intent intent = new Intent(basic_image_activity.this, scalingActivity.class);
-                    startActivity(intent);
-                });
-
-                btnCropping.setOnClickListener(v ->
-                        Toast.makeText(this, "crop button clicked!", Toast.LENGTH_SHORT).show()
-                );
-
-                btnImageBlend.setOnClickListener(v -> {
-                    Intent intent = new Intent(basic_image_activity.this, blendingActivity.class);
-                    startActivity(intent);
-                });
-
-                btnPaddingBorder.setOnClickListener(v -> {
-                    Intent intent = new Intent(basic_image_activity.this, padding_border_activity.class);
-                    startActivity(intent);
-                });
+        btnRotation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(basic_image_activity.this, rotationActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnScaling.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(basic_image_activity.this, scalingActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnCropping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(basic_image_activity.this, "crop button clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnImageBlend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(basic_image_activity.this, blendingActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnPaddingBorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(basic_image_activity.this, padding_border_activity.class);
+                startActivity(intent);
+            }
+        });
 
                 // Handle Slider Changes
                 sliderBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

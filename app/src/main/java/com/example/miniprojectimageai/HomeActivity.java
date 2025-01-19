@@ -90,15 +90,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void uploadImage(Uri imageUri) {
-        // Convert Uri to File using the new MyFileUtils
-        String filePath = MyFileUtils.getPath(this, imageUri);  // Updated here
+        // Convert Uri to File using MyFileUtils
+        String filePath = MyFileUtils.getPath(this, imageUri);
         if (filePath == null) {
             Toast.makeText(this, "Failed to get file path", Toast.LENGTH_SHORT).show();
             return;
         }
         File file = new File(filePath);
 
-        // Create RequestBody for file
+        // Create RequestBody for the file
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
 
@@ -115,55 +115,41 @@ public class HomeActivity extends AppCompatActivity {
         Call<ResponseBody> call = apiService.uploadImage(body);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    try {
-                        String jsonResponse = response.body().string();
-                        AppState.setImageName(ApiService.getFileName(jsonResponse));
-                        String filename = AppState.getImageName();
-                        if (filename != null) {
-                            // Pass the filename to the next activity
-                            Intent intent = new Intent(HomeActivity.this, EditPhotoActivity.class);
-                            intent.putExtra("filename", file);
-                            Toast.makeText(HomeActivity.this, "Success on retrieving filename of " + AppState.getImageName(), Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(HomeActivity.this, "Failed to retrieve filename", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(HomeActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                if (response.isSuccessful()) {
-                    Toast.makeText(HomeActivity.this, "Upload Successful!", Toast.LENGTH_SHORT).show();
-
-                    // Start EditPhotoActivity and pass the URI
-                    Intent intent = new Intent(HomeActivity.this, EditPhotoActivity.class);
-                    intent.putExtra("imageUri", imageUri.toString());
-                    startActivity(intent);
+                    handleSuccessfulResponse(response.body(), imageUri);
                 } else {
                     Toast.makeText(HomeActivity.this, "Upload Failed: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
                 Toast.makeText(HomeActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    private void handleSuccessfulResponse(ResponseBody responseBody, Uri imageUri) {
+        try {
+            String jsonResponse = responseBody.string();
+            AppState.setImageName(ApiService.getFileName(jsonResponse));
+            String filename = AppState.getImageName();
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == REQUEST_CODE_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openGallery();
+            if (filename != null) {
+                Intent intent = new Intent(HomeActivity.this, EditPhotoActivity.class);
+                intent.putExtra("imageUri", imageUri.toString());
+                intent.putExtra("filename", filename);
+                AppState.setImageName(filename);
+                Toast.makeText(HomeActivity.this, "Image uploaded successfully!" + AppState.getImageName(), Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             } else {
-                Toast.makeText(this, "Permission Denied!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, "Failed to retrieve filename", Toast.LENGTH_SHORT).show();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(HomeActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }
+
