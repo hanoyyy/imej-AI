@@ -85,7 +85,13 @@ public class EnhanceActivity extends AppCompatActivity {
             }
         });;
 
-        backbtn.setOnClickListener(v -> finish());
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
     }
 
 
