@@ -1,6 +1,8 @@
 package com.example.miniprojectimageai;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +22,14 @@ public class scalingActivity extends AppCompatActivity {
         EditText valueX = findViewById(R.id.value_x);
         EditText valueY = findViewById(R.id.value_y);
         Button btnScale = findViewById(R.id.btnScaling);
+        Button backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(v -> {
+            Toast.makeText(scalingActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+            // Navigate back to the previous activity
+            Intent intent = new Intent(scalingActivity.this, basic_image_activity.class);
+            startActivity(intent);
+        });
 
         btnScale.setOnClickListener(new View.OnClickListener() {
             @Override

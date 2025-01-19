@@ -34,64 +34,76 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Translation"
+                android:text="Color Manipulation"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
         </LinearLayout>
 
-        <!-- TX Value Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tx value:"
-            android:textSize="18sp"
+            android:text="Red"
+            android:textSize="16sp"
             android:textColor="#000000"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
 
-        <EditText
-            android:id="@+id/txValue"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:hint="Enter value for tx"
-            android:inputType="number"
-            android:backgroundTint="#4E4E4E"
-            android:padding="5dp"
-            android:layout_marginBottom="20dp" />
-
-        <!-- TY Value Section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ty value:"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="20dp"
-            android:layout_marginTop="10dp" />
-
-        <EditText
-            android:id="@+id/tyValue"
-            android:layout_width="380dp"
-            android:layout_height="wrap_content"
-            android:hint="Enter value for ty"
-            android:inputType="number"
-            android:backgroundTint="#4E4E4E"
-            android:padding="5dp"
-            android:layout_marginBottom="20dp" />
-
-        <!-- Translation Button -->
-        <Button
-            android:id="@+id/btnTranslation"
+        <SeekBar
+            android:id="@+id/sliderRed"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="Translation"
+            android:max="100"
+            android:layout_marginBottom="16dp"
+            android:thumbTint="#1A3B5D"
+            android:progressTint="#1A3B5D" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Green"
             android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
+
+        <SeekBar
+            android:id="@+id/sliderGreen"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_marginBottom="16dp"
+            android:thumbTint="#1A3B5D"
+            android:progressTint="#1A3B5D" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blue"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp" />
+
+        <SeekBar
+            android:id="@+id/sliderBlue"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:layout_marginBottom="16dp"
+            android:thumbTint="#1A3B5D"
+            android:progressTint="#1A3B5D" />
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            android:textSize="16dp"
             android:backgroundTint="#CDCDCD"
             android:textColor="#000000"
             android:layout_marginTop="16dp" />
+
 
     </LinearLayout>
 </ScrollView>

@@ -10,6 +10,7 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <!-- Header Section with Back Button -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,18 +18,23 @@
             android:background="#1A3B5D"
             android:padding="16dp">
 
-            <ImageView
+            <!-- Back Button -->
+            <Button
                 android:id="@+id/back"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_arrow_back"
-                android:contentDescription="Back Button"
-                android:layout_gravity="center_vertical" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/baseline_arrow_back"
+                android:background="?android:attr/selectableItemBackground"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="false" />
 
+            <!-- Title Text -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Flip"
+                android:text="Border Padding"
                 android:id="@+id/rotation"
                 android:gravity="center"
                 android:textSize="18sp"

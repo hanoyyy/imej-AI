@@ -1,6 +1,8 @@
 package com.example.miniprojectimageai;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +16,15 @@ public class flipActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_flip);
+
+        Button backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(v -> {
+            Toast.makeText(flipActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+            // Navigate back to the previous activity
+            Intent intent = new Intent(flipActivity.this, basic_image_activity.class);
+            startActivity(intent);
+        });
 
         Button btnHorizontal = findViewById(R.id.btnHorizontal);
         btnHorizontal.setOnClickListener(new View.OnClickListener() {

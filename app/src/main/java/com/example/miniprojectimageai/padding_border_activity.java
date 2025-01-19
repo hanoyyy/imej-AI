@@ -1,6 +1,8 @@
 package com.example.miniprojectimageai;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +26,15 @@ public class padding_border_activity extends AppCompatActivity {
 
         Button btnPadding = findViewById(R.id.btnPadding);
         Button btnBorder = findViewById(R.id.btnBorder);
+        Button backButton = findViewById(R.id.back);
+
+        backButton.setOnClickListener(v -> {
+            Toast.makeText(padding_border_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+            // Navigate back to the previous activity
+            Intent intent = new Intent(padding_border_activity.this, basic_image_activity.class);
+            startActivity(intent);
+        });
 
         btnPadding.setOnClickListener(new View.OnClickListener() {
             @Override

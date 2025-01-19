@@ -1,6 +1,8 @@
 package com.example.miniprojectimageai;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,6 +28,15 @@ public class rotationActivity extends AppCompatActivity {
         Button btn225 = findViewById(R.id.btn225);
         Button btn270 = findViewById(R.id.btn270);
         Button btn315 = findViewById(R.id.btn315);
+        Button backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(v -> {
+            Toast.makeText(rotationActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+            // Navigate back to the previous activity
+            Intent intent = new Intent(rotationActivity.this, basic_image_activity.class);
+            startActivity(intent);
+        });
+
 
         btn45.setOnClickListener(new View.OnClickListener() {
             @Override

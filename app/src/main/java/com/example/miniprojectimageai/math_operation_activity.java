@@ -23,6 +23,16 @@ public class math_operation_activity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_math_operation);
 
+        Button backButton = findViewById(R.id.back);
+
+        backButton.setOnClickListener(v -> {
+            Toast.makeText(math_operation_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+            // Navigate back to the previous activity
+            Intent intent = new Intent(math_operation_activity.this, edit_photo_activity.class);
+            startActivity(intent);
+        });
+
             ImageView image2 = findViewById(R.id.image2);
 
             image2.setOnClickListener(new View.OnClickListener() {

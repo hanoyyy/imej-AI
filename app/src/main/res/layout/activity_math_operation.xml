@@ -14,27 +14,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@color/darkblue"
+            android:background="#1A3B5D"
             android:padding="16dp">
 
-            <ImageView
+            <Button
                 android:id="@+id/back"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_arrow_back"
-                android:contentDescription="Back Button"
-                android:layout_gravity="center_vertical" />
-
-            <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Math Operation"
-                android:gravity="center"
-                android:textSize="18sp"
+                android:drawableLeft="@drawable/baseline_arrow_back"
+                android:background="?android:attr/selectableItemBackground"
                 android:textColor="#FFFFFF"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp" />
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true" />
+
+            <TextView
+                android:id="@+id/colorManipulation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Math Operation"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
         </LinearLayout>
 

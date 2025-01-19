@@ -1,6 +1,8 @@
 package com.example.miniprojectimageai;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +22,15 @@ public class translationActivity extends AppCompatActivity {
         EditText valueTX = findViewById(R.id.txValue);
         EditText valueTY = findViewById(R.id.tyValue);
         Button btnTranslation = findViewById(R.id.btnTranslation);
+        Button backButton = findViewById(R.id.back);
+
+        backButton.setOnClickListener(v -> {
+            Toast.makeText(translationActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+            // Navigate back to the previous activity
+            Intent intent = new Intent(translationActivity.this, basic_image_activity.class);
+            startActivity(intent);
+        });
 
         btnTranslation.setOnClickListener(new View.OnClickListener() {
             @Override
