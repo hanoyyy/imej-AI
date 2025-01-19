@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ImageMatchingActivity extends AppCompatActivity {
 
     private ImageView imgBack;
-    private Button btnSIFT, btnORB;
+    private Button btnSIFT, btnORB, btnTemplateMatching;
     private Bitmap originalImage, processedImage;
 
     @Override
@@ -23,6 +23,7 @@ public class ImageMatchingActivity extends AppCompatActivity {
         imgBack = findViewById(R.id.imgBack);
         btnSIFT = findViewById(R.id.btnSIFT);
         btnORB = findViewById(R.id.btnORB);
+        btnTemplateMatching = findViewById(R.id.btnTemplateMatching);
 
         // Back button functionality
         imgBack.setOnClickListener(v -> finish());
@@ -30,6 +31,7 @@ public class ImageMatchingActivity extends AppCompatActivity {
         // Set listeners for SIFT and ORB buttons
         btnSIFT.setOnClickListener(v -> applySIFTAlgorithm());
         btnORB.setOnClickListener(v -> applyORBAlgorithm());
+        btnTemplateMatching.setOnClickListener(v -> applyTemplateMatching());
     }
 
     private void applySIFTAlgorithm() {
@@ -45,6 +47,14 @@ public class ImageMatchingActivity extends AppCompatActivity {
             // Placeholder: Replace with actual ORB algorithm implementation
             processedImage = originalImage; // Simulated processing
             Toast.makeText(this, "ORB Algorithm Applied", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void applyTemplateMatching() {
+        if (originalImage != null) {
+            // Placeholder: Replace with actual ORB algorithm implementation
+            processedImage = originalImage; // Simulated processing
+            Toast.makeText(this, "TemplateMatching Applied", Toast.LENGTH_SHORT).show();
         }
     }
 }
