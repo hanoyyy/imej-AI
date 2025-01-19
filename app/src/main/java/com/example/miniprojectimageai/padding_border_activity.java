@@ -29,11 +29,7 @@ public class padding_border_activity extends AppCompatActivity {
         Button backButton = findViewById(R.id.back);
 
         backButton.setOnClickListener(v -> {
-            Toast.makeText(padding_border_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
-
-            // Navigate back to the previous activity
-            Intent intent = new Intent(padding_border_activity.this, basic_image_activity.class);
-            startActivity(intent);
+            finish();
         });
 
         btnPadding.setOnClickListener(new View.OnClickListener() {

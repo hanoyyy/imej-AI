@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,13 +54,36 @@ public class EnhanceActivity extends AppCompatActivity {
     }
 
     private void setClickListeners() {
-        histogramButton.setOnClickListener(v -> Toast.makeText(this, " Histogram Equalization clicked!", Toast.LENGTH_SHORT).show());
-        contrastButton.setOnClickListener(v -> Toast.makeText(this, "Contrast Stretching clicked!", Toast.LENGTH_SHORT).show());
-        gammaButton.setOnClickListener(v ->Toast.makeText(this, "Gamma Correction clicked!", Toast.LENGTH_SHORT).show());
+        histogramButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(EnhanceActivity.this, "Histogram Equalization clicked!", Toast.LENGTH_SHORT).show();
 
-        backbtn.setOnClickListener(v -> finish());
+
+            }
+        });
+        contrastButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(EnhanceActivity.this, "Contrast Stretching clicked!", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+        gammaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(EnhanceActivity.this, "Gamma Correction clicked!", Toast.LENGTH_SHORT).show();
+
+
+
+            }
+        });
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
-
-
-
 }

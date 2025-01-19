@@ -2,6 +2,7 @@ package com.example.miniprojectimageai;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -18,43 +19,46 @@ public class ImageMatchingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_matching);
+        initializeViews();
+        setClickListeners();
 
+
+    }
+
+    private void initializeViews() {
         // Initialize UI elements
         imgBack = findViewById(R.id.imgBack);
         btnSIFT = findViewById(R.id.btnSIFT);
         btnORB = findViewById(R.id.btnORB);
         btnTemplateMatching = findViewById(R.id.btnTemplateMatching);
+    }
 
+    private void setClickListeners() {
         // Back button functionality
-        imgBack.setOnClickListener(v -> finish());
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        btnSIFT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ImageMatchingActivity.this, "SIFT Algorithm Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnORB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ImageMatchingActivity.this, "ORB Algorithm Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnTemplateMatching.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ImageMatchingActivity.this, "TemplateMatching Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        // Set listeners for SIFT and ORB buttons
-        btnSIFT.setOnClickListener(v -> applySIFTAlgorithm());
-        btnORB.setOnClickListener(v -> applyORBAlgorithm());
-        btnTemplateMatching.setOnClickListener(v -> applyTemplateMatching());
-    }
-
-    private void applySIFTAlgorithm() {
-        if (originalImage != null) {
-            // Placeholder: Replace with actual SIFT algorithm implementation
-            processedImage = originalImage; // Simulated processing
-            Toast.makeText(this, "SIFT Algorithm Applied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void applyORBAlgorithm() {
-        if (originalImage != null) {
-            // Placeholder: Replace with actual ORB algorithm implementation
-            processedImage = originalImage; // Simulated processing
-            Toast.makeText(this, "ORB Algorithm Applied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void applyTemplateMatching() {
-        if (originalImage != null) {
-            // Placeholder: Replace with actual ORB algorithm implementation
-            processedImage = originalImage; // Simulated processing
-            Toast.makeText(this, "TemplateMatching Applied", Toast.LENGTH_SHORT).show();
-        }
     }
 }

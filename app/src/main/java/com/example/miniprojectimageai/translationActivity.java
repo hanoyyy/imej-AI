@@ -25,11 +25,7 @@ public class translationActivity extends AppCompatActivity {
         Button backButton = findViewById(R.id.back);
 
         backButton.setOnClickListener(v -> {
-            Toast.makeText(translationActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
-
-            // Navigate back to the previous activity
-            Intent intent = new Intent(translationActivity.this, basic_image_activity.class);
-            startActivity(intent);
+            finish();
         });
 
         btnTranslation.setOnClickListener(new View.OnClickListener() {

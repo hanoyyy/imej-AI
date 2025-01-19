@@ -70,8 +70,7 @@ public class CompressionActivity extends AppCompatActivity {
         btnLossy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView imageView = findViewById(R.id.imageview);
-                ApiHelper.fetchImage(CompressionActivity.this, AppState.getImageName(), imageView);
+
             }
         });
 
@@ -80,8 +79,7 @@ public class CompressionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent = new Intent(CompressionActivity.this, EditPhotoActivity.class);
-                startActivity(intent);
+
             }
         });
     }

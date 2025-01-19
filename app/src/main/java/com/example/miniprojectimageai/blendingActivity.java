@@ -2,6 +2,7 @@ package com.example.miniprojectimageai;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,6 +17,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class blendingActivity extends AppCompatActivity {
+    ImageView image2;
+    Button backButton,btnBlend;
 
     private static final int IMAGE_PICK_REQUEST = 100; // Request code for picking an image
 
@@ -24,30 +27,40 @@ public class blendingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_blending);
+        // Initialize views
+        initializeViews();
 
-        ImageView image2 = findViewById(R.id.image2);
+        // Set click listeners
+        setClickListeners();
+    }
+    private void initializeViews() {
 
-        Button backButton = findViewById(R.id.back);
-        backButton.setOnClickListener(v -> {
-            Toast.makeText(blendingActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+        image2 = findViewById(R.id.image2);
+        btnBlend = findViewById(R.id.btnBlend);
+        backButton = findViewById(R.id.back);
+    }
 
-            // Navigate back to the previous activity
-            Intent intent = new Intent(blendingActivity.this, basic_image_activity.class);
-            startActivity(intent);
+    private void setClickListeners() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(blendingActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+                // Navigate back to the previous activity
+                finish();
+            }
         });
-
 
         // Handle ImageView click to pick an image from the gallery
         image2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Intent to open the gallery
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, IMAGE_PICK_REQUEST);
+
+
             }
         });
 
-        Button btnBlend = findViewById(R.id.btnBlend);
+
         btnBlend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,26 +69,4 @@ public class blendingActivity extends AppCompatActivity {
         });
     }
     // Handle the result of the image selection
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == IMAGE_PICK_REQUEST && resultCode == RESULT_OK) {
-            if (data != null) {
-                Uri imageUri = data.getData();
-                try {
-                    // Display the selected image in the ImageView
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                    ImageView image2 = findViewById(R.id.image2);
-                    image2.setImageBitmap(bitmap);
-
-                    Toast.makeText(this, "Image Successfully Imported!", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    Toast.makeText(this, "Failed to Import Image: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        } else {
-            Toast.makeText(this, "Image selection failed or canceled", Toast.LENGTH_SHORT).show();
-        }
-    }
 }

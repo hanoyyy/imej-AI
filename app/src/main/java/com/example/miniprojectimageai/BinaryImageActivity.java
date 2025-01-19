@@ -24,8 +24,14 @@ public class BinaryImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_binary_image); // Replace with your layout file
+        // Initialize views
+        initializeViews();
 
-        // Initialize UI elements
+        // Set click listeners
+        setClickListeners();
+    }
+
+    private void initializeViews() {
         imgBack = findViewById(R.id.imgBack);
         txtHeader = findViewById(R.id.txtHeader);
         btnWienerFilter = findViewById(R.id.btnWienerFilter);
@@ -33,66 +39,50 @@ public class BinaryImageActivity extends AppCompatActivity {
         btnOpening = findViewById(R.id.btnOpening);
         btnClosing = findViewById(R.id.btnClosing);
         btnBoundaryExtraction = findViewById(R.id.btnBoundaryExtraction);
+    }
 
+    private void setClickListeners() {
         // Back button functionality
-        imgBack.setOnClickListener(v -> finish());  // Close activity when back button is clicked
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BinaryImageActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
+
+                // Navigate back to the previous activity
+                finish();
+            }
+        });
 
         // Button listeners for different operations
-        btnWienerFilter.setOnClickListener(v -> applyDilation());
-        btnErosion.setOnClickListener(v -> applyErosion());
-        btnOpening.setOnClickListener(v -> applyOpening());
-        btnClosing.setOnClickListener(v -> applyClosing());
-        btnBoundaryExtraction.setOnClickListener(v -> applyBoundaryExtraction());
-    }
-
-    // Function to apply Dilation (Wiener Filter)
-    private void applyDilation() {
-        if (originalImage != null) {
-            // Apply dilation operation on the original image here (you can use a library like OpenCV)
-            // Here, it's a placeholder; replace with actual dilation logic.
-            processedImage = originalImage; // Replace with actual processing
-            binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(BinaryImageActivity.this, "Dilation Filter Applied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    // Function to apply Erosion
-    private void applyErosion() {
-        if (originalImage != null) {
-            // Apply erosion operation (placeholder)
-            processedImage = originalImage; // Replace with actual processing
-            binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(BinaryImageActivity.this, "Erosion Filter Applied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    // Function to apply Opening (Dilation + Erosion)
-    private void applyOpening() {
-        if (originalImage != null) {
-            // Apply opening operation (placeholder)
-            processedImage = originalImage; // Replace with actual processing
-            binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(BinaryImageActivity.this, "Opening Filter Applied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    // Function to apply Closing (Erosion + Dilation)
-    private void applyClosing() {
-        if (originalImage != null) {
-            // Apply closing operation (placeholder)
-            processedImage = originalImage; // Replace with actual processing
-            binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(BinaryImageActivity.this, "Closing Filter Applied", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    // Function to apply Boundary Extraction
-    private void applyBoundaryExtraction() {
-        if (originalImage != null) {
-            // Apply erosion operation (placeholder)
-            processedImage = originalImage; // Replace with actual processing
-            binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(BinaryImageActivity.this, "Boundary Extraction Filter Applied", Toast.LENGTH_SHORT).show();
-        }
+        btnWienerFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BinaryImageActivity.this, "Dilation Filter Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnErosion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BinaryImageActivity.this, "Erosion Filter Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnOpening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BinaryImageActivity.this, "Opening Filter Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnClosing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BinaryImageActivity.this, "Closing Filter Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnBoundaryExtraction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BinaryImageActivity.this, "Boundary Extraction Filter Applied", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

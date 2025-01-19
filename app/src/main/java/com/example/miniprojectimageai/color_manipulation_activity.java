@@ -32,11 +32,7 @@ public class color_manipulation_activity extends AppCompatActivity {
 
         Button backButton = findViewById(R.id.back);
         backButton.setOnClickListener(v -> {
-            Toast.makeText(color_manipulation_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
-
-            // Navigate back to the previous activity
-            Intent intent = new Intent(color_manipulation_activity.this, basic_image_activity.class);
-            startActivity(intent);
+            finish();
         });
 
         // Set listeners for the sliders to update their values

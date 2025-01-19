@@ -24,11 +24,7 @@ public class scalingActivity extends AppCompatActivity {
         Button btnScale = findViewById(R.id.btnScaling);
         Button backButton = findViewById(R.id.back);
         backButton.setOnClickListener(v -> {
-            Toast.makeText(scalingActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
-
-            // Navigate back to the previous activity
-            Intent intent = new Intent(scalingActivity.this, basic_image_activity.class);
-            startActivity(intent);
+            finish();
         });
 
         btnScale.setOnClickListener(new View.OnClickListener() {
