@@ -134,6 +134,13 @@ public class HomeActivity extends AppCompatActivity {
                         e.printStackTrace();
                         Toast.makeText(HomeActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
+                if (response.isSuccessful()) {
+                    Toast.makeText(HomeActivity.this, "Upload Successful!", Toast.LENGTH_SHORT).show();
+
+                    // Start EditPhotoActivity and pass the URI
+                    Intent intent = new Intent(HomeActivity.this, EditPhotoActivity.class);
+                    intent.putExtra("imageUri", imageUri.toString());
+                    startActivity(intent);
                 } else {
                     Toast.makeText(HomeActivity.this, "Upload Failed: " + response.message(), Toast.LENGTH_SHORT).show();
                 }
