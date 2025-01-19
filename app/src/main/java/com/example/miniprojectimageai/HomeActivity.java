@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.gson.Gson;
+
 import java.io.File;
 
 import okhttp3.MediaType;
@@ -114,13 +116,24 @@ public class HomeActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(HomeActivity.this, "Upload Successful!", Toast.LENGTH_SHORT).show();
-
-                    // Start EditPhotoActivity and pass the URI
-                    Intent intent = new Intent(HomeActivity.this, EditPhotoActivity.class);
-                    intent.putExtra("imageUri", imageUri.toString());
-                    startActivity(intent);
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        String jsonResponse = response.body().string();
+                        AppState.setImageName(ApiService.getFileName(jsonResponse));
+                        String filename = AppState.getImageName();
+                        if (filename != null) {
+                            // Pass the filename to the next activity
+                            Intent intent = new Intent(HomeActivity.this, EditPhotoActivity.class);
+                            intent.putExtra("filename", file);
+                            Toast.makeText(HomeActivity.this, "Success on retrieving filename of " + AppState.getImageName(), Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(HomeActivity.this, "Failed to retrieve filename", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(HomeActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(HomeActivity.this, "Upload Failed: " + response.message(), Toast.LENGTH_SHORT).show();
                 }

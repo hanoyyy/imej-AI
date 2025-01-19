@@ -66,23 +66,17 @@ public class rotationActivity extends AppCompatActivity {
     }
 
     private void rotateImage(int degrees) {
-        // Example file path to the image
-        File imageFile = new File("/path/to/your/image.jpg"); // Replace with your image file's actual path
-
-        if (!imageFile.exists()) {
-            Toast.makeText(this, "Image file not found!", Toast.LENGTH_SHORT).show();
+        if (AppState.getImageName().isEmpty()) {
+            Toast.makeText(this, "No image selected!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Create RequestBody and MultipartBody.Part for the image file
-        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), imageFile);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("image", imageFile.getName(), requestFile);
-
-        // Create RequestBody for the degrees
+        // Create RequestBody for filename and degrees
+        RequestBody filenameBody = RequestBody.create(MediaType.parse("text/plain"), AppState.getImageName());
         RequestBody degreesBody = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(degrees));
 
         // Make the API call
-        Call<RotationResponse> call = apiService.rotateImage(body, degreesBody);
+        Call<RotationResponse> call = apiService.rotateImage(filenameBody, degreesBody);
         call.enqueue(new Callback<RotationResponse>() {
             @Override
             public void onResponse(Call<RotationResponse> call, Response<RotationResponse> response) {
@@ -101,4 +95,5 @@ public class rotationActivity extends AppCompatActivity {
             }
         });
     }
+
 }
