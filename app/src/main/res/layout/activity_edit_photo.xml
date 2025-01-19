@@ -112,7 +112,7 @@
 				android:layout_width="151dp"
 				android:layout_height="27dp"
 				android:layout_marginLeft="59dp"
-				android:layout_marginTop="94dp"
+				android:layout_marginTop="20dp"
 				android:text="@string/original_image_string"
 				android:textColor="@color/rectangle_36_color"
 				android:textSize="14sp" />
@@ -122,23 +122,24 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="49dp"
-				android:layout_marginTop="117dp">
+				android:layout_marginTop="50dp">
 
 
 				<RelativeLayout
 					android:id="@+id/et_profile_female"
-					android:layout_width="314dp"
-					android:layout_height="313.61dp"
+					android:layout_width="300dp"
+					android:layout_height="300dp"
 					android:layout_marginStart="0dp"
 					android:layout_marginTop="0dp">
 
 
 					<ImageView
-						android:id="@+id/originalimage"
+						android:id="@+id/imageview"
 						android:layout_width="match_parent"
 						android:layout_height="match_parent"
 						android:background="@drawable/rectangle_36_shape"
-						android:src="@drawable/vector" />
+						android:src="@drawable/vector"
+						android:scaleType="centerCrop"/>
 				</RelativeLayout>
 			</RelativeLayout>
 
@@ -146,7 +147,7 @@
 				android:layout_width="151dp"
 				android:layout_height="27dp"
 				android:layout_marginLeft="49dp"
-				android:layout_marginTop="463dp"
+				android:layout_marginTop="370dp"
 				android:text="@string/modified_image_string"
 				android:textColor="@color/rectangle_36_color"
 				android:textSize="14sp" />
@@ -156,12 +157,12 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginStart="43dp"
-				android:layout_marginTop="485dp">
+				android:layout_marginTop="400dp">
 
 				<RelativeLayout
 					android:id="@+id/et_profile_female_ek1"
-					android:layout_width="314dp"
-					android:layout_height="313.61dp"
+					android:layout_width="300dp"
+					android:layout_height="300dp"
 					android:layout_marginStart="0dp"
 					android:layout_marginTop="0dp">
 
@@ -180,10 +181,9 @@
 		android:id="@+id/rectangle_45"
 		android:layout_width="match_parent"
 		android:layout_height="75dp"
-		android:layout_marginTop="842dp"
+		android:layout_alignParentBottom="true"
 		android:background="@drawable/rectangle_45_shape">
 
-		<!-- New HorizontalScrollView for the Blue Bar -->
 		<HorizontalScrollView
 			android:id="@+id/blue_bar_scrollview"
 			android:layout_width="match_parent"
@@ -390,8 +390,7 @@
 						android:layout_marginLeft="24dp"
 						android:text="@string/segmentation_string"
 						android:textColor="@color/_bg__edit_photo_ek2_color"
-						android:textSize="16sp"
-                        tools:ignore="DuplicateIds" />
+						android:textSize="16sp" />
 				</LinearLayout>
 
 				<View
@@ -492,14 +491,8 @@
 						android:textColor="@color/_bg__edit_photo_ek2_color"
 						android:textSize="16sp" />
 				</LinearLayout>
-
-				<View
-					android:layout_width="2dp"
-					android:layout_height="match_parent"
-					android:layout_marginLeft="8dp"
-					android:layout_marginRight="8dp"
-					android:background="@color/black" />
 			</LinearLayout>
 		</HorizontalScrollView>
 	</RelativeLayout>
+
 </RelativeLayout>
