@@ -50,7 +50,7 @@ public class BinaryImageActivity extends AppCompatActivity {
             // Here, it's a placeholder; replace with actual dilation logic.
             processedImage = originalImage; // Replace with actual processing
             binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(this, "Dilation applied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BinaryImageActivity.this, "Dilation Filter Applied", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -60,7 +60,7 @@ public class BinaryImageActivity extends AppCompatActivity {
             // Apply erosion operation (placeholder)
             processedImage = originalImage; // Replace with actual processing
             binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(this, "Erosion applied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BinaryImageActivity.this, "Erosion Filter Applied", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -70,7 +70,7 @@ public class BinaryImageActivity extends AppCompatActivity {
             // Apply opening operation (placeholder)
             processedImage = originalImage; // Replace with actual processing
             binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(this, "Opening applied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BinaryImageActivity.this, "Opening Filter Applied", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -80,7 +80,7 @@ public class BinaryImageActivity extends AppCompatActivity {
             // Apply closing operation (placeholder)
             processedImage = originalImage; // Replace with actual processing
             binaryImageView.setImageBitmap(processedImage);
-            Toast.makeText(this, "Closing applied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BinaryImageActivity.this, "Closing Filter Applied", Toast.LENGTH_SHORT).show();
         }
     }
 }

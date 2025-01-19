@@ -12,10 +12,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditPhotoActivity extends AppCompatActivity {
 
+	private LinearLayout backLayout;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_photo);
+
+		// Initialize the back button layout
+		backLayout = findViewById(R.id.backlayout);
+
+		// Set click listener for the back layout
+		backLayout.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Navigate back to the previous activity
+				finish();
+			}
+		});
 
 		// Get the ImageView
 		ImageView ivUploadedPhoto = findViewById(R.id.imageview);
@@ -45,85 +59,65 @@ public class EditPhotoActivity extends AppCompatActivity {
 		LinearLayout matchingLayout = findViewById(R.id.matchinglayout);
 
 		// Set click listeners for each layout
-		basicLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Basic option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Basic option
+		basicLayout.setOnClickListener(v ->
+				Toast.makeText(EditPhotoActivity.this, "Basic option clicked", Toast.LENGTH_SHORT).show()
+		);
+
+		mathematicalLayout.setOnClickListener(v ->
+				Toast.makeText(EditPhotoActivity.this, "Mathematical option clicked", Toast.LENGTH_SHORT).show()
+		);
+
+		filterLayout.setOnClickListener(v ->
+				Toast.makeText(EditPhotoActivity.this, "Filter option clicked", Toast.LENGTH_SHORT).show()
+		);
+
+		enhanceLayout.setOnClickListener(v ->
+				Toast.makeText(EditPhotoActivity.this, "Enhance option clicked", Toast.LENGTH_SHORT).show()
+		);
+
+		compressionLayout.setOnClickListener(v ->
+				Toast.makeText(EditPhotoActivity.this, "Compression option clicked", Toast.LENGTH_SHORT).show()
+		);
+
+		segmentationLayout.setOnClickListener(v ->
+				Toast.makeText(EditPhotoActivity.this, "Segmentation option clicked", Toast.LENGTH_SHORT).show()
+		);
+
+		binaryLayout.setOnClickListener(v -> {
+			// Navigate to the BinaryImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, BinaryImageActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
 			}
+
+			startActivity(intent);
 		});
 
-		mathematicalLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Mathematical option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Mathematical option
+		restorationLayout.setOnClickListener(v -> {
+			Intent intent = new Intent(EditPhotoActivity.this, ImageRestorationActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
 			}
+
+			startActivity(intent);
 		});
 
-		filterLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Filter option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Filter option
+		matchingLayout.setOnClickListener(v -> {
+			Intent intent = new Intent(EditPhotoActivity.this, ImageMatchingActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
 			}
-		});
 
-		enhanceLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Enhance option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Enhance option
-			}
-		});
-
-		compressionLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Compression option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Compression option
-			}
-		});
-
-		segmentationLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Segmentation option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Segmentation option
-			}
-		});
-
-		binaryLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// Navigate to the BinaryImageActivity
-				Intent intent = new Intent(EditPhotoActivity.this, BinaryImageActivity.class);
-
-				// Pass any data if needed
-				String imageUriString = getIntent().getStringExtra("imageUri");
-				if (imageUriString != null) {
-					intent.putExtra("imageUri", imageUriString);
-				}
-
-				startActivity(intent);
-			}
-		});
-
-
-		restorationLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Restoration option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Restoration option
-			}
-		});
-
-		matchingLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Matching option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Matching option
-			}
+			startActivity(intent);
 		});
 	}
 }
