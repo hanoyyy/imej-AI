@@ -5,10 +5,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
@@ -33,6 +36,8 @@ public class EnhanceActivity extends AppCompatActivity {
     private LinearLayout backbtn;
     private ApiService apiService;
     private String currentImagePath;
+    private ImageView originalImageView;
+    private ImageView modifiedImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +55,35 @@ public class EnhanceActivity extends AppCompatActivity {
         contrastButton = findViewById(R.id.Contrastbtn);
         gammaButton = findViewById(R.id.Gammabtn);
         backbtn = findViewById(R.id.enhancebacklayout);
+        modifiedImageView = findViewById(R.id.modifiedimage);
+        originalImageView = findViewById(R.id.imageview);
     }
 
     private void setClickListeners() {
-        histogramButton.setOnClickListener(v -> Toast.makeText(this, " Histogram Equalization clicked!", Toast.LENGTH_SHORT).show());
-        contrastButton.setOnClickListener(v -> Toast.makeText(this, "Contrast Stretching clicked!", Toast.LENGTH_SHORT).show());
-        gammaButton.setOnClickListener(v ->Toast.makeText(this, "Gamma Correction clicked!", Toast.LENGTH_SHORT).show());
+        histogramButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+            }
+        });;
+        contrastButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+            }
+        });;
+        gammaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+            }
+        });;
 
         backbtn.setOnClickListener(v -> finish());
     }
