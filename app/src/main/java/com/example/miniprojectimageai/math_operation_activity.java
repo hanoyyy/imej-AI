@@ -29,7 +29,7 @@ public class math_operation_activity extends AppCompatActivity {
             Toast.makeText(math_operation_activity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
 
             // Navigate back to the previous activity
-            Intent intent = new Intent(math_operation_activity.this, edit_photo_activity.class);
+            Intent intent = new Intent(math_operation_activity.this, EditPhotoActivity.class);
             startActivity(intent);
         });
 

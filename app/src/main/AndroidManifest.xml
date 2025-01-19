@@ -59,16 +59,20 @@
             android:name=".SegmentActivity"
             android:exported="false" />
         <activity
-            android:name=".ImageMatchingActivity" />
+            android:name=".ImageMatchingActivity"
+            android:exported="false"/>
 
         <activity
-            android:name=".ImageRestorationActivity" />
+            android:name=".ImageRestorationActivity"
+            android:exported="false"/>
 
         <activity
-            android:name=".BinaryImageActivity" />
+            android:name=".BinaryImageActivity"
+            android:exported="false"/>
 
         <activity
-            android:name=".EditPhotoActivity" />
+            android:name=".EditPhotoActivity"
+            android:exported="false"/>
 
         <activity
             android:name=".ButtonActivity"

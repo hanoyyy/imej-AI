@@ -33,7 +33,7 @@ public class filterActivity extends AppCompatActivity {
             Toast.makeText(filterActivity.this, "Back Button Clicked", Toast.LENGTH_SHORT).show();
 
             // Navigate back to the previous activity
-            Intent intent = new Intent(filterActivity.this, edit_photo_activity.class);
+            Intent intent = new Intent(filterActivity.this, EditPhotoActivity.class);
             startActivity(intent);
         });
 
