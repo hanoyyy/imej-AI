@@ -119,5 +119,41 @@ public class EditPhotoActivity extends AppCompatActivity {
 
 			startActivity(intent);
 		});
+		segmentationLayout.setOnClickListener(v -> {
+			// Navigate to the BinaryImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, SegmentActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			startActivity(intent);
+		});
+		compressionLayout.setOnClickListener(v -> {
+			// Navigate to the BinaryImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, CompressionActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			startActivity(intent);
+		});
+		enhanceLayout.setOnClickListener(v -> {
+			// Navigate to the BinaryImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, EnhanceActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			startActivity(intent);
+		});
 	}
 }

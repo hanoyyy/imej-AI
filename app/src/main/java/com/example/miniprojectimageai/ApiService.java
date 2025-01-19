@@ -13,10 +13,20 @@ import retrofit2.http.Part;
 public interface ApiService {
     @Multipart
     @POST("upload_image")
-        // Make sure this path matches your Flask API endpoint
     Call<ResponseBody> uploadImage(@Part MultipartBody.Part image);
 
     @Multipart
+    @POST("/process/histogram")
+    Call<ResponseBody> processHistogram(@Part MultipartBody.Part image);
+
+    @Multipart
+    @POST("/process/contrast")
+    Call<ResponseBody> processContrast(@Part MultipartBody.Part image);
+
+    @Multipart
+    @POST("/process/gamma")
+    Call<ResponseBody> processGamma(@Part MultipartBody.Part image);
+}
     @POST("/rotate")
     Call<RotationResponse> rotateImage(
             @Part("filename") RequestBody filename,
