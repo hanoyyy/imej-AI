@@ -48,24 +48,9 @@ public class CompressionActivity extends AppCompatActivity {
     OkHttpClient okHttpClient = new OkHttpClient();
     Request request = new Request.Builder().url("http://10.0.2.2:5000/compress_dct" + AppState.getImageName()).build();
 
+
     private void setClickListeners() {
-        btnLossless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImageView imageView = findViewById(R.id.imageview);
-                okHttpClient.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
 
-                    }
-
-                    @Override
-                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-
-                    }
-                });
-            }
-        });
 
         btnLossy.setOnClickListener(new View.OnClickListener() {
             @Override

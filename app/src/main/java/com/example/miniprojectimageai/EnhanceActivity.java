@@ -20,13 +20,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.RequestBody;
+import okhttp3.Response;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -36,8 +38,6 @@ public class EnhanceActivity extends AppCompatActivity {
     private LinearLayout backbtn;
     private ApiService apiService;
     private String currentImagePath;
-    private ImageView originalImageView;
-    private ImageView modifiedImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,45 +55,44 @@ public class EnhanceActivity extends AppCompatActivity {
         contrastButton = findViewById(R.id.Contrastbtn);
         gammaButton = findViewById(R.id.Gammabtn);
         backbtn = findViewById(R.id.enhancebacklayout);
-        modifiedImageView = findViewById(R.id.modifiedimage);
-        originalImageView = findViewById(R.id.imageview);
     }
+
+    OkHttpClient okHttpClient = new OkHttpClient();
+    Request requestHistogram = new Request.Builder().url("http://10.0.2.2:5000/histogram_equalization/" + AppState.getImageName()).build();
 
     private void setClickListeners() {
         histogramButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                okHttpClient.newCall(requestHistogram).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
 
+                    }
 
+                    @Override
+                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
+                    }
+                });
             }
-        });;
+        });
+
         contrastButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-
-
-            }
-        });;
-        gammaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-            }
-        });;
-
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick(View view) {
 
             }
         });
-    }
 
+        gammaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        backbtn.setOnClickListener(v -> finish());
+    }
 
 
 }
