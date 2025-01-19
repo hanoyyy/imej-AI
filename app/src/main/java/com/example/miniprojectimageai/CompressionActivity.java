@@ -1,10 +1,26 @@
 package com.example.miniprojectimageai;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class CompressionActivity extends AppCompatActivity {
     private Button btnLossless;
@@ -29,20 +45,29 @@ public class CompressionActivity extends AppCompatActivity {
         backButton = findViewById(R.id.compressionbacklayout);
     }
 
-    private void setClickListeners() {
-        // Thresholding button click listener
-        btnLossless.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CompressionActivity.this, "Lossless Compression selected", Toast.LENGTH_SHORT).show();
-            }
-        });
+    OkHttpClient okHttpClient = new OkHttpClient();
+    Request request = new Request.Builder().url("http://10.0.2.2:5000/compress_dct" + AppState.getImageName()).build();
 
-        // K-means button click listener
+
+    private void setClickListeners() {
+
+
         btnLossy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CompressionActivity.this, "Lossy Compression selected", Toast.LENGTH_SHORT).show();
+                ImageView imageView = findViewById(R.id.imageview);
+                ApiHelper.fetchImage(CompressionActivity.this, AppState.getImageName(), imageView);
+                okHttpClient.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+
+                    }
+                });
             }
         });
 
@@ -51,6 +76,8 @@ public class CompressionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                Intent intent = new Intent(CompressionActivity.this, EditPhotoActivity.class);
+                startActivity(intent);
             }
         });
     }

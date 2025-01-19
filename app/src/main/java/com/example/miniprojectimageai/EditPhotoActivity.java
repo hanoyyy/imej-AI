@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 public class EditPhotoActivity extends AppCompatActivity {
 
 	private LinearLayout backLayout;
@@ -34,12 +37,18 @@ public class EditPhotoActivity extends AppCompatActivity {
 		// Get the ImageView
 		ImageView ivUploadedPhoto = findViewById(R.id.imageview);
 
-		// Get the passed URI
-		String imageUriString = getIntent().getStringExtra("imageUri");
-		if (imageUriString != null) {
-			Uri imageUri = Uri.parse(imageUriString);
-			// Set the image to the ImageView
-			ivUploadedPhoto.setImageURI(imageUri);
+		// Get the passed filename
+		String filename = AppState.getImageName();  // Get the filename passed from the previous activity
+
+		if (filename != null) {
+			// Construct the image URL using the filename
+			String imageUrl = "http://10.0.2.2:5000/get_image/" + filename;  // Replace with your server URL
+
+			// Use Glide to load the image into the ImageView
+			Glide.with(this)
+					.load(imageUrl)
+					.apply(new RequestOptions().placeholder(R.drawable._bg__edit_photo_ek2_shape))  // Optional placeholder image
+					.into(ivUploadedPhoto);
 		}
 
 		// Initialize the horizontal scroll view options
@@ -59,29 +68,48 @@ public class EditPhotoActivity extends AppCompatActivity {
 		LinearLayout matchingLayout = findViewById(R.id.matchinglayout);
 
 		// Set click listeners for each layout
-		basicLayout.setOnClickListener(v ->
-				Toast.makeText(EditPhotoActivity.this, "Basic option clicked", Toast.LENGTH_SHORT).show()
-		);
+		basicLayout.setOnClickListener(v -> {
+			// Navigate to the BasicImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, basic_image_activity.class);
 
-		mathematicalLayout.setOnClickListener(v ->
-				Toast.makeText(EditPhotoActivity.this, "Mathematical option clicked", Toast.LENGTH_SHORT).show()
-		);
+			// Pass the image URI to the BasicImageActivity
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
 
-		filterLayout.setOnClickListener(v ->
-				Toast.makeText(EditPhotoActivity.this, "Filter option clicked", Toast.LENGTH_SHORT).show()
-		);
+			// Start the BasicImageActivity
+			startActivity(intent);
+		});
 
-		enhanceLayout.setOnClickListener(v ->
-				Toast.makeText(EditPhotoActivity.this, "Enhance option clicked", Toast.LENGTH_SHORT).show()
-		);
 
-		compressionLayout.setOnClickListener(v ->
-				Toast.makeText(EditPhotoActivity.this, "Compression option clicked", Toast.LENGTH_SHORT).show()
-		);
+		mathematicalLayout.setOnClickListener(v -> {
+			// Navigate to the MathOperationActivity
+			Intent intent = new Intent(EditPhotoActivity.this, math_operation_activity.class);
 
-		segmentationLayout.setOnClickListener(v ->
-				Toast.makeText(EditPhotoActivity.this, "Segmentation option clicked", Toast.LENGTH_SHORT).show()
-		);
+			// Pass the image URI to the MathOperationActivity
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			// Start the MathOperationActivity
+			startActivity(intent);
+		});
+
+		filterLayout.setOnClickListener(v -> {
+			// Navigate to the FilterActivity
+			Intent intent = new Intent(EditPhotoActivity.this, filterActivity.class);
+
+			// Pass the image URI to the FilterActivity
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			// Start the FilterActivity
+			startActivity(intent);
+		});
 
 		binaryLayout.setOnClickListener(v -> {
 			// Navigate to the BinaryImageActivity
@@ -110,6 +138,42 @@ public class EditPhotoActivity extends AppCompatActivity {
 
 		matchingLayout.setOnClickListener(v -> {
 			Intent intent = new Intent(EditPhotoActivity.this, ImageMatchingActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			startActivity(intent);
+		});
+		segmentationLayout.setOnClickListener(v -> {
+			// Navigate to the BinaryImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, SegmentActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			startActivity(intent);
+		});
+		compressionLayout.setOnClickListener(v -> {
+			// Navigate to the BinaryImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, CompressionActivity.class);
+
+			// Pass any data if needed
+			String imageUriString = getIntent().getStringExtra("imageUri");
+			if (imageUriString != null) {
+				intent.putExtra("imageUri", imageUriString);
+			}
+
+			startActivity(intent);
+		});
+		enhanceLayout.setOnClickListener(v -> {
+			// Navigate to the BinaryImageActivity
+			Intent intent = new Intent(EditPhotoActivity.this, EnhanceActivity.class);
 
 			// Pass any data if needed
 			String imageUriString = getIntent().getStringExtra("imageUri");
