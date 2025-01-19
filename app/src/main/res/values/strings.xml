@@ -23,7 +23,7 @@
     <string name="filter_string">FILTER</string>
     <string name="enhance_string">ENHANCE</string>
     <string name="compression_string">COMPRESS</string>
-    <string name="mathematical_string">MATHEMATICAL</string>
+    <string name="mathematical_string">MATH</string>
     <string name="segmentation_string">SEGMENT</string>
     <string name="binary_string">BINARY</string>
     <string name="restoration_string">RESTORE</string>
