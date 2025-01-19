@@ -1,5 +1,6 @@
 package com.example.miniprojectimageai;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -95,10 +96,19 @@ public class EditPhotoActivity extends AppCompatActivity {
 		binaryLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(EditPhotoActivity.this, "Binary option clicked", Toast.LENGTH_SHORT).show();
-				// Add logic for Binary option
+				// Navigate to the BinaryImageActivity
+				Intent intent = new Intent(EditPhotoActivity.this, BinaryImageActivity.class);
+
+				// Pass any data if needed
+				String imageUriString = getIntent().getStringExtra("imageUri");
+				if (imageUriString != null) {
+					intent.putExtra("imageUri", imageUriString);
+				}
+
+				startActivity(intent);
 			}
 		});
+
 
 		restorationLayout.setOnClickListener(new View.OnClickListener() {
 			@Override
