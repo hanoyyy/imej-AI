@@ -72,6 +72,17 @@ public class CompressionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ImageView imageView = findViewById(R.id.imageview);
                 ApiHelper.fetchImage(CompressionActivity.this, AppState.getImageName(), imageView);
+                okHttpClient.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+
+                    }
+                });
             }
         });
 
